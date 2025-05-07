@@ -11,7 +11,7 @@ function Banner() {
           <div className='bannerPicture'><img src='./images/portIcon3.webp' alt='npmFrank Rossi'/></div> 
           <div className='aboutMe'>
             <h1>Frank Rossi</h1>
-            <p>Junior CSE Student at The Ohio State University</p>            
+            <p>Senior CSE Student at The Ohio State University</p>            
           </div>
         </div>
         <br />
