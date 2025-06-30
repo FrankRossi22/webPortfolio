@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 
 
 
@@ -119,7 +119,7 @@ export default function HeapSortCanvas({ array, resetTrigger, arrayLength }) {
 
   const MAX_DEPTH = 4; 
 
-  function drawHeap(ctx, arr, idx, x, y, hSpace, vSpace, depth = 0) {
+  const drawHeap = useCallback( (ctx, arr, idx, x, y, hSpace, vSpace, depth = 0) => {
   if (idx >= arr.length || depth > MAX_DEPTH) return;
 
   drawNode(ctx, x - 4, y, arr[idx].num, arr[idx].color);
@@ -158,7 +158,7 @@ export default function HeapSortCanvas({ array, resetTrigger, arrayLength }) {
     ctx.font = 'bold 14px Arial';
     ctx.fillText('...', x, y + vSpace);
   }
-}
+}, [])
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -213,7 +213,7 @@ export default function HeapSortCanvas({ array, resetTrigger, arrayLength }) {
   requestAnimationFrame(animate);
     };
     requestAnimationFrame(animate);
-  });  
+  }, [drawHeap]);  
 
   
   return (

@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState, useCallback } from 'react';
 
 const CANVAS_WIDTH = 800;
 const CANVAS_HEIGHT = 200;
@@ -33,7 +33,7 @@ export default function QuickSortCanvas({ array, resetTrigger, arrayLength }) {
     fpsRef.current = fps;
   }, [fps]);
 
-  const quickSort = (arr, start, end, tokenList) => {
+  const quickSort = useCallback( (arr, start, end, tokenList) => {
     if (start >= end) return;
     let partition = end;
     let i = start - 1;
@@ -51,7 +51,7 @@ export default function QuickSortCanvas({ array, resetTrigger, arrayLength }) {
     [arr[i], arr[partition]] = [arr[partition], arr[i]];
     quickSort(arr, start, i - 1, tokenList);
     quickSort(arr, i + 1, end, tokenList);
-  };
+  }, []);
 
   useEffect(() => {
     const boxWidth = (CANVAS_WIDTH - BOX_MARGIN * 2) / arrayLength;
@@ -72,7 +72,7 @@ export default function QuickSortCanvas({ array, resetTrigger, arrayLength }) {
 
     tokens.current = localTokens;
     currTokenIndex.current = 0;
-  }, [resetTrigger, array, arrayLength]);
+  }, [resetTrigger, array, arrayLength, quickSort]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
