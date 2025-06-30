@@ -1,0 +1,31 @@
+html, body {
+    padding: 0;
+    margin: 0;
+    background-color: rgb(195, 198, 206);
+}
+
+#backgroundImage, #backgroundImage2, #playerImage, #mushRun , #t, #goblin, #skeleton, .Background, #wizard, #runTest{
+    display: none;
+}
+.gameButtons {
+    align-items: center;
+    text-align: center;
+    font-size: 1.5em;
+    margin-top: 1em;
+}
+
+canvas {
+    padding: 0;
+    margin: auto;
+    display: block;
+    width: 1200px;
+    height: 720px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border: 8px solid rgb(54, 54, 54);
+    border-radius: 10px;
+    background-color: rgb(103, 167, 103);
+}

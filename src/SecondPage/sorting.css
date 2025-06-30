@@ -1,0 +1,66 @@
+.sortingAlgCont {
+    text-align: center;
+    margin: 30px;
+}
+.sortingAlgPageCont {
+    text-align: center;
+    margin: 30px;
+}
+
+.SortingButtonCont {
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 100;
+  padding: 10px 20px;
+  border-bottom: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sortingControlLeft,
+.sortingControlRight {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.sortingControlLeft {
+  justify-content: flex-start;
+}
+
+.sortingControlRight {
+  justify-content: flex-end;
+}
+
+.sortingControlCenter {
+  flex: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.SortingButtonCont label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.SortingButtonCont input[type="range"] {
+  width: 150px;
+}
+
+.backButton {
+  font-size: 16px;
+  text-decoration: none;
+  padding: 2px 42px;
+  background-color: #f0f0f0;
+  border: 1px solid #aaa;
+  border-radius: 6px;
+  color: black;
+  transition: background-color 0.2s ease;
+}
+
+.backButton:hover {
+  background-color: #ddd;
+}

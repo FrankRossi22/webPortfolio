@@ -10,7 +10,8 @@
 .projectDiv {
   display: inline-block;
   max-width: 800px;
-  height: 350px;
+  min-height: 220px;
+  height: auto;
   outline: auto;
   outline-color: #e4e4e4;
   background-color: #f3f3f3;
@@ -34,9 +35,10 @@
   outline: none;
 }
 .projectDescP{
+  display: inline-block;
   text-align: left;
   margin-top: 10px;
-  height: 180px;
+  height: auto;
   transition: all 1s ease;
 }
 .projectImage {
@@ -49,13 +51,19 @@
 }
 
 .projectImage img{
+  display: inline;
   width: 490px;
-  height: 370px;
+  min-height: 300px;
+  height: 140%;
   vertical-align: bottom;
   object-position: 20px 30px;
   transform-origin: right;
   transition: all .2s ease-in-out;
-  
+  outline: 1px solid transparent;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0);
+  will-change: transform;
+  -webkit-perspective: 1000;
   
 }
 .projectDiv:hover .projectImage img {
@@ -101,11 +109,13 @@
   height: 40px;
   padding: 0;
   transition: transform .3s ease-in-out;
+  
 }
 .projectDescription .projectLinks {
   display: flex;
   flex-direction: row;
-  margin-top: 15px;
+  margin-top: 20px;
+  margin-bottom: 15px;
 }
 .projectDescription .projectLink {
   text-decoration: none;
@@ -118,10 +128,11 @@
   text-align: center;
   vertical-align: middle;
   transition: all .1s ease-in-out;
+  margin-right: 10px;
 }
 .projectLink:hover {
   background-color: #e7e7e7;
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
 .projectLink img {
   width: 20px;
@@ -140,7 +151,7 @@
   .projectDiv {
     display: inline-block;
     max-width: 600px;
-    height: 400px;
+    height: auto;
     outline: auto;
     outline-color: #e4e4e4;
     background-color: #f3f3f3;
@@ -174,7 +185,6 @@
   .projectDiv {
     display: inline-block;
     max-width: 500px;
-    height: 400px;
     outline: auto;
     outline-color: #e4e4e4;
     background-color: #f3f3f3;
@@ -185,7 +195,7 @@
   .projectDescP{
     text-align: left;
     margin-top: 10px;
-    height: 150px;
+    min-height: 50px;
     transition: all 1s ease;
 
   }
@@ -197,7 +207,6 @@
   .projectDiv {
     display: inline-block;
     max-width: 800px;
-    height: 350px;
     outline: auto;
     outline-color: #e4e4e4;
     background-color: #f3f3f3;
@@ -219,7 +228,6 @@
   .projectDescP{
     text-align: left;
     margin-top: 10px;
-    height: 180px;
     transition: all 1s ease;
 
   }

@@ -53,14 +53,36 @@ function Projects({elRef, screenSize}) {
     { myStyle: {width: 40, height: 40 }, src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/raspberrypi/raspberrypi-original.svg", iconName: 'RasPi'},
   ]
 
+  const sortingMadeWith = [
+    { myStyle: {width: 30, height: 30 }, src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg", iconName: 'JS'},
+    { myStyle: {width: 40, height: 40 }, src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original-wordmark.svg", iconName: 'REACT'},
+    { myStyle: {width: 40, height: 40 }, src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original-wordmark.svg", iconName: 'HTML'},
+    { myStyle: {width: 40, height: 40 }, src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original-wordmark.svg", iconName: 'CSS'}
+  ]
+
+  const gameMadeWith = [
+    { myStyle: {width: 30, height: 30 }, src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg", iconName: 'JS'},
+    { myStyle: {width: 40, height: 40 }, src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original-wordmark.svg", iconName: 'HTML'},
+    { myStyle: {width: 40, height: 40 }, src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original-wordmark.svg", iconName: 'CSS'}
+
+  ]
   return (
     <section className="projects" id='projects'>
       <h2 ref={ elRef }>Projects</h2>
+      <Project name='Mobile Side Scroller Game' createdWith={gameMadeWith} id={'MSSG'} links={[
+        {link: '/gamePage', icon: './images/play-button.png', name: 'Demo'},
+         {link: 'https://github.com/FrankRossi22/SimpleJSGame', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg', name: 'GitHub'}
+      ]}
+      description={"A side scroller base defense game made with the canvas element in HTML and JavaScript. " 
+        + "Players must defend the relic in their base while fighting alongside friendly AI against hordes of enemies. "
+        + "Made to be mechanically similar to Plants vs. Zombies with more combat oriented gameplay"
+      } 
+      image={"./images/gameImage.png"}/>
       <Project name='Lunch Count' createdWith={lunchCountMadeWith} id={'LC'} links={[
-        {link: 'https://github.com/FrankRossi22/LunchCount2024', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg', name: 'GitHub'}
+        {link: 'https://github.com/FrankRossi22/LunchCount2024', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg', name: 'GitHub'},
       ]}
       description={"With the large growth of Learning Management Systems over the past decade, " 
-        + "Lunch Count serves as a building block to improve these platforms by providing a robust system for tracking student lunch orders."
+        + "Lunch Count serves as a building block to improve these platforms by providing a robust system for tracking student lunch orders. "
         + "Users (Students, Teachers, and Admin) each have their own dashboard with admin having sole access to lunch creation and updating. This was created using JS, Express, and NedB Databases."} 
       image={"./images/lunchCount.png"}/>
       <Project name='Baja Buckeyes' createdWith={bajaMadeWith} id={'BB'} links={[
@@ -72,6 +94,14 @@ function Projects({elRef, screenSize}) {
         + " This year the team placed 12/61 and 31/107 at Baja SAE California & Pennsylvania respectively."
       } 
       image={"./images/baja.png"}/>
+      <Project name='Sorting Algorithm Visualizer' createdWith={sortingMadeWith} id={'SAV'} links={[
+        {link: '/sortingVisualizer', icon: './images/play-button.png', name: 'Demo'}
+      ]}
+      description={"Small Project to visualize how sorting algorithms work throughout the sorting process. "
+        + "Originally created using HTML Canvas and JavaScript, then updated for the demo version to work with canvas in React. "
+        + "Users can go through the visualizations at 1 or up to 100 frames per second."
+      } 
+      image={"./images/sortingVisImage.png"}/>
   
     </section>
   );

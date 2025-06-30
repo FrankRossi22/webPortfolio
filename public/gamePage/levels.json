@@ -1,0 +1,9 @@
+{"1": [{"time": 2000, "enemy": "test"}, {"time": 6000, "enemy": "goblin"}, {"time": 8000, "enemy": "test"},
+        {"time": 10000, "enemy": "test"}, {"time": 12000, "enemy": "test"}, {"time": 13500, "enemy": "goblin"},
+        {"time": 17000, "enemy": "skeleton"}, {"time": 18000, "enemy": "goblin"}, {"time": 18500, "enemy": "skeleton"}], 
+ "2": [{"time": 1000, "enemy": "goblin"}, {"time": 6000, "enemy": "goblin"}, {"time": 8000, "enemy": "test"},
+        {"time": 10000, "enemy": "test"}, {"time": 12000, "enemy": "test"}, {"time": 13500, "enemy": "goblin"},
+        {"time": 17000, "enemy": "skeleton"}, {"time": 18000, "enemy": "goblin"}, {"time": 18500, "enemy": "skeleton"}],
+ "3": [{"time": 2000, "enemy": "wizard"}, {"time": 6000, "enemy": "wizard"}, {"time": 8000, "enemy": "test"},
+        {"time": 10000, "enemy": "test"}, {"time": 12000, "enemy": "test"}, {"time": 13500, "enemy": "goblin"},
+        {"time": 17000, "enemy": "skeleton"}, {"time": 18000, "enemy": "goblin"}, {"time": 18500, "enemy": "skeleton"}]}
