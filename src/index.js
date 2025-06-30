@@ -5,8 +5,6 @@ import FullPage from './FullPage';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
 import RedirectSite from './redirect';
-import BubbleSortCanvas from './SecondPage/canvas'
-import QuickSortCanvas from './SecondPage/quickSort';
 import SortingAlgsPage from './SecondPage/sortingAlgs';
 
 /*

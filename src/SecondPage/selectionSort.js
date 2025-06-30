@@ -39,9 +39,7 @@ export default function SelectionSortCanvas({ array, resetTrigger, arrayLength }
     while(sorted < arr.length - 1){
         minIndex = sorted;
         for(var i = sorted + 1; i < arr.length; i++) {
-            let prevMinIndex = 0;
             if(arr[i] < arr[minIndex]) {
-                prevMinIndex = minIndex;
                 minIndex = i;
             }
             tokenList.push({checked: i, minIndex: minIndex, swapped: [], sorted: sorted});

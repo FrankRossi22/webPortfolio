@@ -5,7 +5,6 @@ import React, { useEffect, useRef, useState } from 'react';
 const CANVAS_WIDTH  = 800;
 const BASE_HEIGHT   = 400;            
 const LEVEL_HEIGHT  = 120;            
-const MAX_NUM       = 100;
 const boxMargin     = 2;
 
 class NumberBox {
@@ -185,7 +184,7 @@ export default function HeapSortCanvas({ array, resetTrigger, arrayLength }) {
           /* undo colours of previous token */
           if (currTokenIndex.current > 0) {
             const prev = tokens.current[currTokenIndex.current - 1];
-            prev.checked .forEach(i => (nums.current[i].color = 'grey'));
+            prev.checked.forEach(i => (nums.current[i].color = 'grey'));
             prev.swapped.forEach(i => (nums.current[i].color = 'grey'));
           }
 
@@ -214,7 +213,7 @@ export default function HeapSortCanvas({ array, resetTrigger, arrayLength }) {
   requestAnimationFrame(animate);
     };
     requestAnimationFrame(animate);
-  }, []);  
+  });  
 
   
   return (
