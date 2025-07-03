@@ -34,7 +34,7 @@ class NumberBox {
 
 export default function BubbleSortCanvas({ array, resetTrigger, arrayLength }) {
   const { height, width } = useWindowDimensions();
-  CANVAS_HEIGHT = height / 5;
+  CANVAS_HEIGHT = Math.max(height / 5, 200);
   CANVAS_WIDTH = width * .6;
   if(width < 700) CANVAS_WIDTH = width * .8
   const canvasRef = useRef(null);
@@ -56,7 +56,7 @@ export default function BubbleSortCanvas({ array, resetTrigger, arrayLength }) {
           num,
           boxWidth - BOX_MARGIN * 2,
           index * boxWidth + BOX_MARGIN * 2,
-          50,
+          30,
           'grey'
         )
     );
