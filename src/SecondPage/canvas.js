@@ -1,7 +1,10 @@
 import React, { useRef, useEffect, useState } from 'react';
+import useWindowDimensions from './windowDimensions';
 
-const CANVAS_WIDTH = 800;
-const CANVAS_HEIGHT = 200;
+
+
+let CANVAS_HEIGHT = 200;
+let CANVAS_WIDTH = 800;
 const BOX_MARGIN = 2;
 
 class NumberBox {
@@ -11,17 +14,29 @@ class NumberBox {
     this.x = x;
     this.y = y;
     this.color = color;
+    this.yOffset = 0;
+    this.fontSize = Math.floor(this.width);
   }
 
   draw(ctx) {
     ctx.fillStyle = this.color;
     ctx.fillRect(this.x, this.y, this.width, this.num);
     ctx.fillStyle = 'black';
-    ctx.fillText(this.num, this.x + this.width / 2, this.y + this.num / 2);
+    ctx.textAlign = 'center';
+    this.fontSize = Math.min(Math.floor(this.width), 16)
+
+    ctx.font = this.fontSize + 'px Arial';
+    if(this.num < 10) this.yOffset = 8 + this.num / 2;
+    else this.yOffset = 0;
+    if(this.width > 12) ctx.fillText(this.num, this.x + this.width / 2, this.y + this.num / 2 - this.yOffset);
   }
 }
 
 export default function BubbleSortCanvas({ array, resetTrigger, arrayLength }) {
+  const { height, width } = useWindowDimensions();
+  CANVAS_HEIGHT = height / 5;
+  CANVAS_WIDTH = width * .6;
+  if(width < 700) CANVAS_WIDTH = width * .8
   const canvasRef = useRef(null);
   const nums = useRef([]);
   const tokens = useRef([]);
@@ -67,9 +82,10 @@ export default function BubbleSortCanvas({ array, resetTrigger, arrayLength }) {
     console.log(localTokens.length)
     tokens.current = localTokens;
     currTokenIndex.current = 0;
-  }, [resetTrigger, array, arrayLength]);
+  }, [resetTrigger, array, arrayLength, width]);
 
   useEffect(() => {
+    
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
     let lastTime = 0;

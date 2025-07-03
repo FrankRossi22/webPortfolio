@@ -22,16 +22,22 @@
 .sortingControlLeft,
 .sortingControlRight {
   flex: 1;
-  display: flex;
+  display: block;
   align-items: center;
+}
+.sortingControlLeft > label {
+  display: block;
+}
+.sortingControlLeft > input {
+  display: block;
 }
 
 .sortingControlLeft {
-  justify-content: flex-start;
+  justify-content: center;
 }
 
 .sortingControlRight {
-  justify-content: flex-end;
+  justify-content: center;
 }
 
 .sortingControlCenter {
@@ -40,20 +46,17 @@
   justify-content: center;
 }
 
-.SortingButtonCont label {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
 
 .SortingButtonCont input[type="range"] {
   width: 150px;
 }
 
 .backButton {
+  margin: 5px;
+
   font-size: 16px;
   text-decoration: none;
-  padding: 2px 42px;
+  padding: 2px 22px;
   background-color: #f0f0f0;
   border: 1px solid #aaa;
   border-radius: 6px;
@@ -64,3 +67,65 @@
 .backButton:hover {
   background-color: #ddd;
 }
+
+.sortingControlRight > button {
+  margin: 5px;
+
+  text-decoration: none;
+  padding: 2px 22px;
+  background-color: #f0f0f0;
+  border: 1px solid #aaa;
+  border-radius: 6px;
+  color: black;
+  transition: background-color 0.2s ease;
+}
+
+.sortingControlRight > button:hover {
+  background-color: #ddd;
+}
+
+@media (min-width: 200px) {
+  .sortingControlRight > button{
+    font-size: 12px;
+    padding: 2px 12px;
+  }
+  .backButton {
+    font-size: 12px;
+    padding: 2px 12px;
+  
+  }
+  .SortingButtonCont input[type="range"] {
+    width: 80px;
+  }
+  .sortingAlgPageCont {
+    margin: 0px;
+  }
+}
+@media (min-width: 550px) {
+  .sortingControlRight > button{
+    font-size: 14px;
+    padding: 2px 12px;
+  }
+  .backButton {
+    font-size: 14px;
+    padding: 2px 12px; 
+  }
+  .SortingButtonCont input[type="range"] {
+    width: 120px;
+  }
+}
+@media (min-width: 850px) {
+  .sortingControlRight > button{
+    font-size: 16px;
+    padding: 2px 22px;
+  }
+  .backButton {
+    font-size: 16px;
+    padding: 2px 22px;
+  
+  }
+  .SortingButtonCont input[type="range"] {
+    width: 150px;
+  }
+}
+

@@ -2,30 +2,40 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 
 
 
-const CANVAS_WIDTH  = 800;
+const CANVAS_WIDTH  = 900;
 const BASE_HEIGHT   = 400;            
 const LEVEL_HEIGHT  = 120;            
 const boxMargin     = 2;
 
 class NumberBox {
   constructor(num, width, x, y, color = 'grey') {
-    this.num   = num;
+    this.num = num;
     this.width = width;
-    this.x     = x;
-    this.y     = y;
+    this.x = x;
+    this.y = y;
     this.color = color;
+    this.yOffset = 0;
+    this.fontSize = Math.floor(this.width);
   }
+
   draw(ctx) {
     ctx.fillStyle = this.color;
     ctx.fillRect(this.x, this.y, this.width, this.num);
     ctx.fillStyle = 'black';
-    ctx.fillText(this.num, this.x + this.width / 2, this.y + this.num / 2);
+    ctx.textAlign = 'center';
+    this.fontSize = Math.min(Math.floor(this.width), 16)
+
+    ctx.font = this.fontSize + 'px Arial';
+    if(this.num < 10) this.yOffset = 8 + this.num / 2;
+    else this.yOffset = 0;
+    if(this.width > 12) ctx.fillText(this.num, this.x + this.width / 2, this.y + this.num / 2 - this.yOffset);
   }
 }
 
 
 
 export default function HeapSortCanvas({ array, resetTrigger, arrayLength }) {
+  
   const canvasRef          = useRef(null);
   const nums               = useRef([]);
   const tokens             = useRef([]);

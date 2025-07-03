@@ -86,7 +86,8 @@ function Projects({elRef, screenSize}) {
         + "Users (Students, Teachers, and Admin) each have their own dashboard with admin having sole access to lunch creation and updating. This was created using JS, Express, and NedB Databases."} 
       image={"./images/lunchCount.png"}/>
       <Project name='Baja Buckeyes' createdWith={bajaMadeWith} id={'BB'} links={[
-        {link: 'https://osubajasae.wixsite.com/bajabuckeyes', icon: './images/bajaIcon.webp', name: 'Baja'}
+        {link: 'https://osubajasae.wixsite.com/bajabuckeyes', icon: './images/bajaIcon.webp', name: 'Baja'},
+        {link: 'https://github.com/FrankRossi22/ArduinoProjects', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg', name: 'GitHub'}      
       ]}
       description={"Sensor code and testing built by the Data Aquisition sub-team of the Baja Buckeyes." 
         + " Baja Buckeyes is a student organization that designs, builds, and competes an offroad vehicle each year, as a part of Baja SAE."
