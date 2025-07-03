@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import BubbleSortCanvas from './canvas';
+import BubbleSortCanvas from './bubbleSort';
 import QuickSortCanvas from './quickSort';
 import './sorting.css';
 import SelectionSortCanvas from './selectionSort';

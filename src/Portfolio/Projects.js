@@ -96,7 +96,9 @@ function Projects({elRef, screenSize}) {
       } 
       image={"./images/baja.png"}/>
       <Project name='Sorting Algorithm Visualizer' createdWith={sortingMadeWith} id={'SAV'} links={[
-        {link: '/sortingVisualizer', icon: './images/play-button.png', name: 'Demo'}
+        {link: '/sortingVisualizer', icon: './images/play-button.png', name: 'Demo'},
+        {link: 'https://github.com/FrankRossi22/SortingAlgVisualizer', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg', name: 'GitHub'}      
+      
       ]}
       description={"Small Project to visualize how sorting algorithms work throughout the sorting process. "
         + "Originally created using HTML Canvas and JavaScript, then updated for the demo version to work with canvas in React. "

@@ -5,7 +5,7 @@ import FullPage from './FullPage';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
 import RedirectSite from './redirect';
-import SortingAlgsPage from './SecondPage/sortingAlgs';
+import SortingAlgsPage from './SortingAlgPage/sortingAlgs';
 
 /*
 To Do - 
