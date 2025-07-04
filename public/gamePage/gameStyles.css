@@ -12,15 +12,18 @@ html, body {
     text-align: center;
     font-size: 1.5em;
     margin-top: 1em;
+    margin-bottom: 1em;
 }
-
+p {
+    text-align: center;
+    font-size: 2em;
+}
 canvas {
     padding: 0;
     margin: auto;
     display: block;
     width: 1200px;
     height: 720px;
-    position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
@@ -28,4 +31,12 @@ canvas {
     border: 8px solid rgb(54, 54, 54);
     border-radius: 10px;
     background-color: rgb(103, 167, 103);
+    -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        outline: none;
+        -webkit-tap-highlight-color: rgba(255, 255, 255, 0); /* mobile webkit */
 }

@@ -36,10 +36,12 @@ class AIHealthBar {
     }
     draw(context) {
         context.fillStyle = this.color;
+        context.strokeStyle = this.color;
         context.fillRect(this.parent.x + this.xOffset, this.parent.y + this.yOffset,
              this.width * (this.parent.health / this.parent.type.health), this.height);
         context.strokeRect(this.parent.x +  this.xOffset, this.parent.y + this.yOffset,
             this.width, this.height);
+        context.strokeStyle = 'black';
     }
     update(deltaTime){
         
@@ -150,7 +152,7 @@ class DestructibleObeject{
 
 class Player{
     constructor(state) {
-        this.x = 200;
+        this.x = 250;
         this.y = GAME_HEIGHT - PLAYER_DATA.height + 10;
         this.frameInterval = 1000/PLAYER_DATA.fps;
         this.frameX = 0;
@@ -175,6 +177,8 @@ class Player{
             coinCounterBox.width, coinCounterBox.height);
         context.strokeRect(coinCounterBox.x, coinCounterBox.y,
             coinCounterBox.width, coinCounterBox.height);
+
+
         context.fillStyle = 'black';
         context.font = '30px Arial';
         context.textAlign = 'center';

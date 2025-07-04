@@ -25,7 +25,8 @@ window.addEventListener('load', function(){
             enemies.push(new AIEntity(ENTITY_TYPES.enemy, ENEMY_TYPES[levelData[0]["enemy"]], background.distanceTraveled));
             levelData.shift();
         }
-        enemyTimer += deltaTime;
+        if(!inputHandler.gamePaused) enemyTimer += deltaTime;
+       
 
         allies.sort(function(a, b) {
             return parseFloat(b.x) - parseFloat(a.x);
@@ -263,7 +264,7 @@ window.addEventListener('load', function(){
 
 
         
-        levelData = LEVELS[level]; // Process the JSON data
+        levelData = [...LEVELS[level]]; // Process the JSON data
         console.log(levelData)
         //player.gameState = GAME_STATES.inGame;
         player = new Player(GAME_STATES.inGame);
@@ -314,7 +315,6 @@ window.addEventListener('load', function(){
 
     }
     let levelData = [];
-
     function handleMenuSelection(selectedItem) {
       if (selectedItem === 0) {
         restartGame('1');
@@ -329,13 +329,30 @@ window.addEventListener('load', function(){
         console.log(selectedItem)
         restartGame('' + selectedItem)
     }
-    this.window.addEventListener('mousedown', e => {
+    this.window.addEventListener('pointerdown', e => {
+        e.stopPropagation();
+        e.preventDefault();
+        console.log(1)
         if(player.gameState === GAME_STATES.gameOver && isInside(getMousePos(canvas, e), retryRect)) {
             restartGame('1');
-        }else if(player.gameState === GAME_STATES.inGame && isInside(getMousePos(canvas, e), allyIcon1)) {
-            if(player.coinCount - 5 >= 0) {
+        }else if(inputHandler.gamePaused) {
+            PAUSE_MENU_ITEMS.some((item, index) => {
+                itemRect = {x: PAUSE_MENU_ITEM_RECTS.x, y: PAUSE_MENU_ITEM_RECTS.y + (PAUSE_MENU_ITEM_DIMS.height ) * index,
+                    width: PAUSE_MENU_ITEM_RECTS.width, height: PAUSE_MENU_ITEM_RECTS.height };
+                if (isInside(getMousePos(canvas, e), itemRect)) {
+                    inputHandler.gamePaused = false;
+                    player.gameState = GAME_STATES.menu
+                    return;
+                }
+            });
+        } else if(player.gameState === GAME_STATES.inGame) {
+            if(isInside(getMousePos(canvas, e), allyIcon1) && player.coinCount - 5 >= 0) {
                 player.coinCount -= 5;
                 allies.push(new AIEntity(ENTITY_TYPES.ally, ENEMY_TYPES.mushroom, background.distanceTraveled))
+            } else if(isInside(getMousePos(canvas, e), TOUCH_MOVE_HITBOXES.left)) {
+                inputHandler.keys.push('a');
+            } else if(isInside(getMousePos(canvas, e), TOUCH_MOVE_HITBOXES.right)) {
+                inputHandler.keys.push('d')
             }
         } else if(player.canUpgrade === true && isInside(getMousePos(canvas, e), coinUpgradeBox)) {
             player.coinGainRate = ANVIL_LEVELS[player.anvilLevel].rateChange;
@@ -348,16 +365,6 @@ window.addEventListener('load', function(){
                     width: MENU_ITEM_RECTS.width, height: MENU_ITEM_RECTS.height };
                 if (isInside(getMousePos(canvas, e), itemRect)) {
                     handleMenuSelection(index);
-                    return;
-                }
-            });
-        } else if(inputHandler.gamePaused) {
-            PAUSE_MENU_ITEMS.some((item, index) => {
-                itemRect = {x: PAUSE_MENU_ITEM_RECTS.x, y: PAUSE_MENU_ITEM_RECTS.y + (PAUSE_MENU_ITEM_DIMS.height ) * index,
-                    width: PAUSE_MENU_ITEM_RECTS.width, height: PAUSE_MENU_ITEM_RECTS.height };
-                if (isInside(getMousePos(canvas, e), itemRect)) {
-                    inputHandler.gamePaused = false;
-                    player.gameState = GAME_STATES.menu
                     return;
                 }
             });
@@ -378,6 +385,21 @@ window.addEventListener('load', function(){
 
     });
     
+
+    this.window.addEventListener('pointerup', e => {
+        e.stopPropagation();
+        e.preventDefault();
+        if(player.gameState === GAME_STATES.inGame) {
+            if(isInside(getMousePos(canvas, e), TOUCH_MOVE_HITBOXES.left)) {
+                inputHandler.keys = [];
+                // inputHandler.keys.splice(inputHandler.keys.indexOf('a'), 1);
+            } else if(isInside(getMousePos(canvas, e), TOUCH_MOVE_HITBOXES.right)) {
+                inputHandler.keys = [];
+
+            }
+        } 
+
+    });
     var paused = false;
     var lastTime = 0;
     var enemyTimer = 0;
@@ -401,6 +423,18 @@ window.addEventListener('load', function(){
         })
     }
     let timeTotal = 0;
+    let prevPauseState = false;
+    window.addEventListener("blur", () => {
+        prevPauseState = inputHandler.gamePaused;
+        
+        inputHandler.gamePaused = true;
+        
+    });
+    window.addEventListener("focus", () => {
+        inputHandler.keys = [];
+        inputHandler.gamePaused = prevPauseState;
+    });
+
     //Main loop of the game, sends animate function calls for all objects
     function animate(timeStamp) {
         var deltaTime = timeStamp - lastTime;
