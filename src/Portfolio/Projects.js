@@ -67,7 +67,7 @@ function Projects({elRef, screenSize}) {
   ]
   const listMadeWith = [
     { myStyle: {width: 30, height: 30 }, src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original-wordmark.svg", iconName: 'Java'},
-    
+    { myStyle: {width: 30, height: 30 }, src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/junit/junit-plain-wordmark.svg", iconName: 'JUnit'},
   ]
   return (
     <section className="projects" id='projects'>
