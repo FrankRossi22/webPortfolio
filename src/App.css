@@ -149,7 +149,7 @@ html {
   justify-items: center;
   overflow: hidden;
   z-index: 100000;
-  margin-top: 20px;
+  margin-top: 60px;
 }
 .topBar ul{
   display: flex;
@@ -246,7 +246,7 @@ html {
     transition: all .7s ease;  
   }
   .topBar{
-    margin-top: 0;
+    margin-top: 40px;
     transition: all .7s ease;  
   }
 }
@@ -272,7 +272,7 @@ html {
     transition: all .7s ease;  
   }
   .topBar{
-    margin-top: 20px;
+    margin-top: 60px;
     transition: all .7s ease;   
   }
   
