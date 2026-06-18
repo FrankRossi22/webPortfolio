@@ -91,7 +91,7 @@ function Projects({elRef, screenSize}) {
         image={"./images/lunchCount.png"}/>
 
       <Project name='Baja Buckeyes' createdWith={bajaMadeWith} id={'BB'} links={[
-          {link: 'https://osubajasae.wixsite.com/bajabuckeyes', icon: './images/bajaIcon.webp', name: 'Baja'},
+          {link: 'https://org.osu.edu/bajabuckeyes/', icon: './images/bajaIcon.webp', name: 'Baja'},
           {link: 'https://github.com/FrankRossi22/ArduinoProjects', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg', name: 'GitHub'}      
         ]}
         description={"Sensor code and testing built by the Data Aquisition sub-team of the Baja Buckeyes." 
