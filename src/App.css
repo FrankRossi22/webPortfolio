@@ -246,11 +246,39 @@ html {
     transition: all .7s ease;  
   }
   .topBar{
-    margin-top: 40px;
+    margin-top: 0px;
     transition: all .7s ease;  
   }
 }
 @media (min-width: 620px) {
+  .topBar a{
+    font-size: 12px;
+    transition: all .7s ease;  
+  }
+  .topBar li{
+    display: inline-block;
+    width: 18%;
+    padding: 6px;
+    transition: all .7s ease;  
+  }
+  .topBar .content{
+    border-radius: 27px;
+    width: 600px;
+    height: 54px;
+    transition: all .7s ease;  
+  }
+  .topBar .iconDiv {
+    width: 5%;
+    transition: all .7s ease;  
+  }
+  .topBar{
+    margin-top: 10px;
+    transition: all .7s ease;   
+  }
+  
+}
+
+@media (min-width: 880px) {
   .topBar a{
     font-size: 12px;
     transition: all .7s ease;  
