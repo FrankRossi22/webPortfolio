@@ -26,7 +26,7 @@ class NumberBox {
     this.fontSize = Math.min(Math.floor(this.width), 16)
 
     ctx.font = this.fontSize + 'px Arial';
-    if(this.num < 10) this.yOffset = 8 + this.num / 2;
+    if(this.num < 23) this.yOffset = 8 + this.num / 2;
     else this.yOffset = 0;
     if(this.width > 12) ctx.fillText(this.num, this.x + this.width / 2, this.y + this.num / 2 - this.yOffset);
   }
@@ -79,7 +79,6 @@ export default function BubbleSortCanvas({ array, resetTrigger, arrayLength }) {
       }
       sorted++;
     }
-    console.log(localTokens.length)
     tokens.current = localTokens;
     currTokenIndex.current = 0;
   }, [resetTrigger, array, arrayLength, width]);
